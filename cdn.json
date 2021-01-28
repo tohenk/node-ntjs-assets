@@ -1,0 +1,22 @@
+{
+    "jquery": {
+        "version": "3.5.1",
+        "url": "https://code.jquery.com/%NAME%",
+        "js": {
+            "jquery": "jquery-%VER%",
+            "jquery.min": "jquery-%VER%.min"
+        }
+    },
+    "notifyjs": {
+        "version": "0.4.2",
+        "url": "https://cdnjs.cloudflare.com/ajax/libs/notify/%VER%/%NAME%"
+    },
+    "semantic-ui": {
+        "version": "2.8.7",
+        "url": "https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/%VER%/%NAME%"
+    },
+    "socket.io": {
+        "version": "3.1.0",
+        "url": "https://cdnjs.cloudflare.com/ajax/libs/socket.io/%VER%/%NAME%"
+    }
+}

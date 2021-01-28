@@ -22,6 +22,10 @@
  * SOFTWARE.
  */
 
+const fs            = require('fs');
 const path          = require('path');
 
-module.exports = path.join(__dirname, 'assets');
+module.exports = {
+    Assets: path.join(__dirname, 'assets'),
+    CDN: JSON.parse(fs.readFileSync(path.join(__dirname, 'cdn.json')))
+}

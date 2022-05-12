@@ -16,7 +16,7 @@
         "url": "https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/%VER%/%NAME%"
     },
     "socket.io": {
-        "version": "3.1.0",
-        "url": "https://cdnjs.cloudflare.com/ajax/libs/socket.io/%VER%/%NAME%"
+        "version": "4.5.0",
+        "url": "https://cdn.socket.io/%VER%/%NAME%"
     }
 }

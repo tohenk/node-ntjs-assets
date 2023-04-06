@@ -1,0 +1,3 @@
+[submodule "assets/js"]
+	path = assets/js
+	url = https://github.com/tohenk/ntjs-web-assets.git

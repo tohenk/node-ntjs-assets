@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  *
- * Copyright (c) 2021 Toha <tohenk@yahoo.com>
+ * Copyright (c) 2021-2023 Toha <tohenk@yahoo.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -22,8 +22,8 @@
  * SOFTWARE.
  */
 
-const fs            = require('fs');
-const path          = require('path');
+const fs = require('fs');
+const path = require('path');
 
 module.exports = {
     Assets: path.join(__dirname, 'assets'),

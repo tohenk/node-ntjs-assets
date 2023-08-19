@@ -1,6 +1,6 @@
 {
     "bootstrap": {
-        "version": "5.3.0",
+        "version": "5.3.1",
         "url": "https://cdn.jsdelivr.net/npm/bootstrap@%VER%/dist/%TYPE%/%NAME%"
     },
     "bootstrap-icons": {
@@ -31,7 +31,7 @@
         "url": "https://cdn.jsdelivr.net/npm/fomantic-ui@%VER%/dist/%NAME%"
     },
     "socket.io": {
-        "version": "4.7.1",
+        "version": "4.7.2",
         "url": "https://cdn.socket.io/%VER%/%NAME%"
     }
 }

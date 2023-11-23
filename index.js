@@ -27,5 +27,5 @@ const path = require('path');
 
 module.exports = {
     Assets: path.join(__dirname, 'assets'),
-    CDN: JSON.parse(fs.readFileSync(path.join(__dirname, 'cdn.json')))
+    CDN: JSON.parse(fs.readFileSync(path.join(__dirname, 'assets/js/cdn.json')))
 }

@@ -1,0 +1,51 @@
+name: Publish package to npmjs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 17 * * *'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        cache: 'npm'
+        node-version: '20.x'
+        registry-url: 'https://registry.npmjs.org'
+    - name: Update assets and publish if necessary
+      run: |
+        set +e
+
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+
+        git submodule update --init --merge --remote -- assets/js
+        CHANGED=$(git diff .)
+        if [ -n "${CHANGED}" ]; then
+          VER=$(awk "/\"version\": \"*\"/ { print \$2 }" package.json | egrep -o "([0-9]{1,}\.)+[0-9]{1,}[A-Za-z0-9\-]{0,}")
+          if [ -n "${VER}" ]; then
+            # bump version
+            IFS="." read -r -a VERS <<< ${VER}
+            MAJOR=${VERS[0]}
+            MINOR=${VERS[1]}
+            PATCH=$((${VERS[2]}+1))
+            sed -i -e "s/\"version\": \"${VER}\"/\"version\": \"${MAJOR}.${MINOR}.${PATCH}\"/g" package.json
+            npm update
+
+            # commit changes
+            git add .
+            git commit -m "Update assets."
+            git push
+            git tag v${MAJOR}.${MINOR}.${PATCH}
+            git push origin v${MAJOR}.${MINOR}.${PATCH} --force
+
+            # publish package
+            npm publish
+          fi
+        fi
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

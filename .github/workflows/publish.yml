@@ -31,8 +31,8 @@ jobs:
             # bump version
             IFS="." read -r -a VERS <<< ${VER}
             MAJOR=${VERS[0]}
-            MINOR=${VERS[1]}
-            PATCH=$((${VERS[2]}+1))
+            MINOR=$((${VERS[1]}+1))
+            PATCH=0
             sed -i -e "s/\"version\": \"${VER}\"/\"version\": \"${MAJOR}.${MINOR}.${PATCH}\"/g" package.json
             npm update
 

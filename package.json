@@ -1,6 +1,6 @@
 {
   "name": "@ntlab/ntjs-assets",
-  "version": "2.13.0",
+  "version": "2.14.0",
   "description": "Node Javascript assets",
   "main": "index.js",
   "scripts": {

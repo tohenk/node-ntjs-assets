@@ -5,16 +5,20 @@ on:
   schedule:
     - cron: '15 17 * * *'
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         cache: 'npm'
-        node-version: '20.x'
+        node-version: '24.x'
         registry-url: 'https://registry.npmjs.org'
     - name: Update assets and publish if necessary
       run: |
@@ -47,5 +51,3 @@ jobs:
             npm publish
           fi
         fi
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
